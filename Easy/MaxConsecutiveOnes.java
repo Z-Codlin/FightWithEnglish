@@ -20,4 +20,32 @@ The length of input array is a positive integer and will not exceed 10,000
       
         
 ---------------------------*/
-public class Easy/MaxConsecutiveOnes
+import java.lang.*;
+import java.util.*;
+
+public class MaxConsecutiveOnes {
+    public static int solution(int[] a) {
+        int result = 0;
+        int temp = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == 1) {
+                temp++;
+            } else {
+                if (temp >= result) {
+                    result = temp;
+                }
+                temp = 0;
+            }
+        }
+        if (temp > result) {
+            result = temp;
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+        int[] a = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1};
+        int result = solution(a);
+        System.out.printf("----%d",result);
+    }
+
+}
